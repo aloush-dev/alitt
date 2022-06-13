@@ -1,0 +1,85 @@
+.toplinestraight {
+    background-color: white;
+    padding: 0.1rem;
+    margin: 0.25rem;
+    width: 30px;
+    height: 0.25rem;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+    transform: rotate(0);
+    z-index: 20;
+  }
+  
+  .midlinestraight {
+    background-color: white;
+    padding: 0.1rem;
+    margin: 0.25rem;
+    width: 30px;
+    height: 0.25rem;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 20;
+  }
+  
+  .botlinestraight {
+    background-color: white;
+    padding: 0.1rem;
+    margin: 0.25rem;
+    width: 30px;
+    height: 0.25rem;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+    transform: rotate(0);
+    z-index: 20;
+  }
+  
+  .toplinerotated {
+    background-color: white;
+    padding: 0.1rem;
+    margin: 0.25rem;
+    width: 30px;
+    height: 0.25rem;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+    transform: rotate(45deg);
+    z-index: 20;
+  }
+  
+  .midlinerotated {
+    background-color: white;
+    padding: 0.1rem;
+    margin: 0.25rem;
+    width: 25px;
+    height: 0.25rem;
+    border-radius: 10px;
+    transition: all 0.2s linear;
+    position: relative;
+    transform-origin: 1px;
+    opacity: 0;
+    z-index: 20;
+  }
+  
+  .botlinerotated {
+    background-color: white;
+    padding: 0.1rem;
+    margin: 0.25rem;
+    width: 30px;
+    height: 0.25rem;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+    transform: rotate(-45deg);
+    z-index: 20;
+  }
+  
