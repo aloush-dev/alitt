@@ -18,20 +18,25 @@ export const PostComment = ({ articleID }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Post comment
-        <input
-          required
-          onChange={(event) => {
-            setCommentToPost(event.target.value);
-          }}
-          value={commentToPost}
-          type="text"
-        ></input>
-      </label>
-      <button>
-        <IoSend />
-      </button>
+      <div className={styles.postcomment}>
+        <label>
+          <div className={styles.label}>Post comment</div>
+          <div className={styles.inputcontainer}>
+            <input
+              className={styles.inputfield}
+              required
+              onChange={(event) => {
+                setCommentToPost(event.target.value);
+              }}
+              value={commentToPost}
+              type="text"
+            ></input>
+            <button className={styles.inputbutton}>
+              <IoSend />
+            </button>
+          </div>
+        </label>
+      </div>
     </form>
   );
 };
