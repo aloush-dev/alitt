@@ -16,11 +16,9 @@ export const getArticles = (topic) => {
 };
 
 export const getArticleByID = (article_id) => {
-  return alittApi
-    .get(`/articles/${article_id}`)
-    .then(({ data }) => {
-      return data.article;
-    });
+  return alittApi.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
 };
 
 export const getTopics = () => {
@@ -30,9 +28,15 @@ export const getTopics = () => {
 };
 
 export const updateVotes = (article_id) => {
+  return alittApi
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then(({ data }) => {
+      return data.article.votes;
+    });
+};
 
-  return alittApi.patch(`/articles/${article_id}`, {inc_votes: 1}).then(({data})=>{
-    return data.article.votes
-  })
-
-}
+export const getComments = (article_id) => {
+  return alittApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+};

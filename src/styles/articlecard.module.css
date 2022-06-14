@@ -30,6 +30,13 @@ a {
   color: white;
   font-weight: bold;
   padding: 0.25rem;
+  border: none;
+}
+
+.articletopic:hover {
+  background-color: #a04c37;
+  cursor: pointer;
+
 }
 
 .articletopic a {
