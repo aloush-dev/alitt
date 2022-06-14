@@ -1,3 +1,13 @@
+.nocomments {
+  background-color: white;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
 .commentcard {
   background-color: white;
   margin: 10px;
@@ -10,14 +20,13 @@
 
 .author {
   font-size: 0.8rem;
-
 }
 
 .topbanner {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 .votes {
@@ -33,5 +42,5 @@
 }
 
 .commentbody {
-    padding: 20px;
+  padding: 20px;
 }

@@ -11,7 +11,11 @@ export const CommentCard = ({ articleID }) => {
     });
   });
 
-  return (
+  return comments.length === 0 ? (
+    <div className={styles.nocomments}>
+      <p> There are no comments to show</p>
+    </div>
+  ) : (
     <ul>
       {comments.map((comment) => {
         return (
