@@ -1,16 +1,23 @@
 import styles from "../styles/articlecard.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaComments } from "react-icons/fa";
 
 export const ArticleCard = ({ article }) => {
+  const navigate = useNavigate();
   return (
     <Link to={`/articles/article/${article.article_id}`}>
       <li className={styles.articlecard}>
         <h2 className={styles.articletitle}>{article.title}</h2>
         <div className={styles.topicauthor}>
-          <div className={styles.articletopic}>
-            <Link to={`/articles/${article.topic}`}>{article.topic}</Link>
-          </div>
+          <button
+            className={styles.articletopic}
+            onClick={() => {
+              navigate = `/articles/${article.topic}}`;
+            }}
+          >
+            {article.topic}
+          </button>
+
           <div className={styles.articleauthor}>
             Posted by : {article.author}
           </div>

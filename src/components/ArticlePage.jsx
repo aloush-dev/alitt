@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { ArticleVoteTracker } from "./ArticleVotesTracker";
+import { Loading } from "./Loading";
+import { CommentCard } from "./CommentCard";
 
 export const ArticlePage = () => {
   const [article, setArticle] = useState({});
@@ -20,9 +22,10 @@ export const ArticlePage = () => {
   }, [params.article_id]);
 
   if (isLoading) {
-    return <p>.......Loading</p>;
+    return <Loading />
   }
   return (
+      <>
     <div className={styles.articlecard}>
       <div className={styles.topbanner}>
         <div className={styles.articletopic}>
@@ -41,5 +44,7 @@ export const ArticlePage = () => {
         <p className={styles.articlecontent}>{article.body}</p>
       </div>
     </div>
+    <CommentCard articleID={params.article_id} />
+    </>
   );
 };

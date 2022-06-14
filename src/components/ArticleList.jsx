@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "../styles/articlelist.module.css";
 import { getArticles } from "../utils/api";
 import { ArticleCard } from "./ArticleCard";
+import { Loading } from "./Loading";
 
 export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -18,7 +19,7 @@ export const ArticleList = () => {
   }, [params.topic]);
 
   if (isLoading) {
-    return <p>...Loading</p>;
+    return <Loading />
   }
 
   return (
