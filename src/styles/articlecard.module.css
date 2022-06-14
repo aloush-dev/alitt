@@ -1,4 +1,10 @@
+a {
+  text-decoration: none;
+  color: #264653;
+}
+
 .articlecard {
+  background-color: white;
   margin: 20px;
   padding: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
