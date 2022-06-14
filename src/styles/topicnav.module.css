@@ -4,5 +4,10 @@
   color: white;
   list-style: none;
 }
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 
 

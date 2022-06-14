@@ -6,12 +6,20 @@ const alittApi = axios.create({
 
 export const getArticles = (topic) => {
   return alittApi
-    .get("/articles", {params: {topic}})
+    .get("/articles", { params: { topic } })
     .then(({ data }) => {
       return data.article;
     })
     .catch((err) => {
       console.log(err);
+    });
+};
+
+export const getArticleByID = (article_id) => {
+  return alittApi
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.article;
     });
 };
 

@@ -1,0 +1,24 @@
+.article {
+    background-color: white;
+    margin: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.topicauthor {
+    display: flex;
+    align-items: center;
+}
+
+.articletopic {
+    background-color: #e76f51;
+    padding: 0.25rem;
+  }
+
+  .articletopic a {
+    color: white;
+    font-weight: bold;
+  }
+  
+  

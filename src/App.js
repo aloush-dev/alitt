@@ -4,6 +4,7 @@ import "./App.css";
 import { Header } from "./components/Header/Header";
 import { TopicNav } from "./components/Header/TopicNav";
 import { ArticleList } from "./components/ArticleList";
+import { ArticlePage } from "./components/ArticlePage";
 
 function App() {
   const [sideMenu, setSideMenu] = useState(false);
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/articles" element={<ArticleList />} />
         <Route path="/articles/:topic" element={<ArticleList />} />
+        <Route path='/articles/article/:article_id' element={<ArticlePage />} />
       </Routes>
     </div>
   );
