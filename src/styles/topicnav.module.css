@@ -1,5 +1,5 @@
 .nav {
-  background-color: #2a9d8f;
+  background-color: #b0a6d2;
   height: fit-content;
   color: white;
   list-style: none;
@@ -9,5 +9,15 @@
     text-decoration: none;
     font-weight: bold;
 }
+
+.ul {
+    display: flex;
+    justify-content: center;
+}
+
+.topictitle {
+    list-style: none;
+    padding: 0.5rem;
+  }
 
 

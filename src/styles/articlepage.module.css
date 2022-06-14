@@ -1,24 +1,41 @@
-.article {
-    background-color: white;
-    margin: 20px;
-    padding: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
+.articlecard {
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.topbanner {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  height: 30px;
+}
+
+.articlebody {
+  padding: 15px;
 }
 
 .topicauthor {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .articletopic {
-    background-color: #e76f51;
-    padding: 0.25rem;
-  }
+  background-color: #e76f51;
+  padding: 0.25rem;
+  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .articletopic a {
-    color: white;
-    font-weight: bold;
-  }
-  
-  
+.articletopic a {
+  color: white;
+  font-weight: bold;
+}
+
+.articlecontent {
+  padding: 0.5rem;
+}
