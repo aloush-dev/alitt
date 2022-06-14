@@ -40,3 +40,14 @@ export const getComments = (article_id) => {
     return data.comments;
   });
 };
+
+export const postComment = (article_id, commentToPost) => {
+  return alittApi
+    .post(`/articles/${article_id}/comments`, {
+      username: "jessjelly",
+      body: commentToPost,
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
+};

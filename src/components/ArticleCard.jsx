@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaComments } from "react-icons/fa";
 
 export const ArticleCard = ({ article }) => {
-  const navigate = useNavigate();
+  let navigate = useNavigate();
   return (
     <Link to={`/articles/article/${article.article_id}`}>
       <li className={styles.articlecard}>

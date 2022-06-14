@@ -5,7 +5,7 @@ a {
 
 .articlecard {
   background-color: white;
-  margin: 20px;
+  margin: 15px;
   padding: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -31,12 +31,12 @@ a {
   font-weight: bold;
   padding: 0.25rem;
   border: none;
+  font-size: 1rem;
 }
 
 .articletopic:hover {
   background-color: #a04c37;
   cursor: pointer;
-
 }
 
 .articletopic a {
