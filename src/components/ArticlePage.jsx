@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { ArticleVoteTracker } from "./ArticleVotesTracker";
 import { Loading } from "./Loading";
 import { CommentCard } from "./CommentCard";
+import { PostComment } from "./PostComment";
 
 export const ArticlePage = () => {
   const [article, setArticle] = useState({});
@@ -44,6 +45,7 @@ export const ArticlePage = () => {
         <p className={styles.articlecontent}>{article.body}</p>
       </div>
     </div>
+    <PostComment articleID={params.article_id}/>
     <CommentCard articleID={params.article_id} />
     </>
   );
