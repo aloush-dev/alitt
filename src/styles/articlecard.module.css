@@ -1,6 +1,48 @@
 .articlecard {
-  border: 1px solid black;
-  margin: 5px;
-  padding: 3px;
+  margin: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  list-style: none;
+  display: grid;
+  grid-template-areas: "title votes" "topicauthor comments";
+  grid-template-columns: 85% 15%;
 }
 
+.articlecard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.articletitle {
+  grid-area: title;
+}
+
+.articletopic {
+  grid-area: topicauthor;
+  background-color: #e76f51;
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem;
+}
+
+.articletopic a {
+  text-decoration: none;
+  color: white;
+}
+
+.articleauthor {
+  grid-area: topicauthor;
+}
+
+.articlevotes {
+  grid-area: votes;
+}
+
+.articlecommments {
+  grid-area: comments;
+}
+
+.topicauthor {
+  display: flex;
+  align-items: center;
+}
