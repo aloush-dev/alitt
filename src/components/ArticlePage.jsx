@@ -4,27 +4,42 @@ import { getArticleByID } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import { ArticleVoteTracker } from "./ArticleVotesTracker";
+
 export const ArticlePage = () => {
   const [article, setArticle] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
 
   useEffect(() => {
     getArticleByID(params.article_id).then((res) => {
       setArticle(res);
+      setIsLoading(false);
     });
   }, [params.article_id]);
 
+  if (isLoading) {
+    return <p>.......Loading</p>;
+  }
   return (
-    <div className={styles.article}>
-      <h2>{article.title}</h2>
-      <div className={styles.topicauthor}>
+    <div className={styles.articlecard}>
+      <div className={styles.topbanner}>
         <div className={styles.articletopic}>
           <Link to={`/articles/${article.topic}`}>{article.topic}</Link>
         </div>
-        <div className={styles.articleauthor}>Posted by : {article.author}</div>
+        <ArticleVoteTracker votes={article.votes} articleID={params.article_id} />
       </div>
-      <p>{article.body}</p>
+
+      <div className={styles.articlebody}>
+        <h2>{article.title}</h2>
+        <div className={styles.topicauthor}>
+          <div className={styles.articleauthor}>
+            Posted by : {article.author}
+          </div>
+        </div>
+        <p className={styles.articlecontent}>{article.body}</p>
+      </div>
     </div>
   );
 };

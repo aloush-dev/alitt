@@ -28,3 +28,11 @@ export const getTopics = () => {
     return data.topics;
   });
 };
+
+export const updateVotes = (article_id) => {
+
+  return alittApi.patch(`/articles/${article_id}`, {inc_votes: 1}).then(({data})=>{
+    return data.article.votes
+  })
+
+}

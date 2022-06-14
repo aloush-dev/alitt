@@ -14,7 +14,8 @@ export const TopicNav = () => {
 
   return (
     <div className={styles.nav}>
-      <ul>
+      <ul className={styles.ul}>
+          <li className={styles.topictitle} ><Link to="/articles">all</Link></li>
         {topicNav.map((topic) => {
           return (
             <div className={styles.topictitle} key={topic.slug}>

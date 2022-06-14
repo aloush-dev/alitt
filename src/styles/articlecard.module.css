@@ -21,6 +21,7 @@ a {
 
 .articletitle {
   grid-area: title;
+  font-size: 1.1rem;
 }
 
 .articletopic {
@@ -42,10 +43,27 @@ a {
 
 .articlevotes {
   grid-area: votes;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-height: 20px;
+  padding: 0.5rem;
+  background-color: #e76f51;
+  color: white;
+  font-weight: bolder;
+  font-size: 1.5rem;
 }
 
-.articlecommments {
+.commentsicon {
+  color: #e76f51;
+  margin-right: 0.5rem;
+}
+
+.articlecomments {
   grid-area: comments;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .topicauthor {

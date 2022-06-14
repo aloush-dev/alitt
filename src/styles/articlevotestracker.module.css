@@ -1,0 +1,25 @@
+.votebanner {
+    display: flex;
+}
+
+.votebanner button {
+    border: none;
+    background-color: white;
+    color: #e76f51;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    align-items: center;
+    display: flex;
+}
+
+.votes {
+    padding: 0.5rem;
+    background-color: #e76f51;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.5rem;
+  }
+  
