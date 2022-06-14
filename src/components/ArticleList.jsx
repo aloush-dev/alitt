@@ -1,16 +1,25 @@
 import { useEffect, useState } from "react";
-import styles from "../styles/main.module.css";
+import { useParams } from "react-router-dom";
+import styles from "../styles/articlelist.module.css";
 import { getArticles } from "../utils/api";
 import { ArticleCard } from "./ArticleCard";
 
-export const Main = () => {
+export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  const params = useParams();
 
   useEffect(() => {
-    getArticles().then((res) => {
+    getArticles(params.topic).then((res) => {
       setArticles(res);
+      setIsLoading(false);
     });
-  }, []);
+  }, [params.topic]);
+
+  if (isLoading) {
+    return <p>...Loading</p>;
+  }
 
   return (
     <ul>
