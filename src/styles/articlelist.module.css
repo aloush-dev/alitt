@@ -10,26 +10,22 @@
 }
 
 .orderbut {
-    border: none;
-    background-color: #e76f51;
-    color: white;
-    font-weight: bolder;
-    padding: 0.5rem;
-  } {
   border: none;
   background-color: #e76f51;
   color: white;
   font-weight: bolder;
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 .postbut {
-    border: none;
-    background-color: #e76f51;
-    color: white;
-    font-weight: bolder;
-    padding: 0.5rem;
-  }
+  border: none;
+  background-color: #e76f51;
+  color: white;
+  font-weight: bolder;
+  padding: 0.5rem;
+  cursor: pointer;
+}
 
 .buttonselected {
   border: none;
@@ -37,6 +33,7 @@
   color: white;
   font-weight: bolder;
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 .divider {

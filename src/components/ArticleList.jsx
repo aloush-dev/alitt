@@ -13,7 +13,11 @@ export const ArticleList = () => {
   const [ascClicked, setAscClicked] = useState(false);
   const [descClicked, setDescClicked] = useState(true);
 
-  let sortBy = ["created_at", "comment_count", "votes"];
+  let sortBy = [
+    { value: "created_at", name: "Date" },
+    { value: "comment_count", name: "Comments" },
+    { value: "votes", name: "Hottest" },
+  ];
 
   const params = useParams();
 
@@ -43,7 +47,6 @@ export const ArticleList = () => {
     setOrderParams(event.target.value);
   };
 
-
   useEffect(() => {
     getArticles(params.topic, searchParams, orderParams).then((res) => {
       setArticles(res);
@@ -61,8 +64,12 @@ export const ArticleList = () => {
         <div className={styles.orderbox}>
           <select value={searchParams} onChange={handleSort}>
             <option value="">Sort articles by</option>
-            {sortBy.map((options, index) => {
-              return <option key={index}>{options}</option>;
+            {sortBy.map((option, index) => {
+              return (
+                <option value={option.value} key={index}>
+                  {option.name}
+                </option>
+              );
             })}
           </select>
           <button
