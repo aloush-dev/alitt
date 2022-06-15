@@ -4,9 +4,16 @@ const alittApi = axios.create({
   baseURL: "https://alitt-app.herokuapp.com/api",
 });
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, searchParams, order) => {
+  if (searchParams) {
+    return alittApi
+      .get(`/articles?sort_by=${searchParams}&order=${order}`, { params: { topic } })
+      .then(({ data }) => {
+        return data.article;
+      });
+  }
   return alittApi
-    .get("/articles", { params: { topic } })
+    .get("/articles", { params: { topic }, sort_by: searchParams })
     .then(({ data }) => {
       return data.article;
     })
@@ -50,4 +57,16 @@ export const postComment = (article_id, commentToPost) => {
     .then(({ data }) => {
       return data.comment;
     });
+};
+
+export const increaseCommentVote = (comment_id) => {
+  return alittApi
+    .patch(`/comments/${comment_id}`, { inc_votes: 1 })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+export const getSortBy = () => {
+  return alittApi.get("/articles", {});
 };

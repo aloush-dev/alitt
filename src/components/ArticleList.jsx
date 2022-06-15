@@ -8,25 +8,88 @@ import { Loading } from "./Loading";
 export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+  const [searchParams, setSearchParams] = useState();
+  const [orderParams, setOrderParams] = useState("DESC");
+  const [ascClicked, setAscClicked] = useState(false);
+  const [descClicked, setDescClicked] = useState(true);
+
+  let sortBy = ["created_at", "comment_count", "votes"];
+
   const params = useParams();
 
+  const handleSort = (event) => {
+    setSearchParams(event.target.value);
+  };
+
+  let ascButtonClicked = styles.orderbut;
+  if (ascClicked) {
+    ascButtonClicked = styles.buttonselected;
+  }
+
+  let descButtonClicked = styles.orderbut;
+  if (descClicked) {
+    descButtonClicked = styles.buttonselected;
+  }
+
+  const handleOrderAsc = (event) => {
+    setAscClicked(!ascClicked);
+    setDescClicked(!descClicked);
+    setOrderParams(event.target.value);
+  };
+
+  const handleOrderDesc = (event) => {
+    setDescClicked(!descClicked);
+    setAscClicked(!ascClicked);
+    setOrderParams(event.target.value);
+  };
+
+
   useEffect(() => {
-    getArticles(params.topic).then((res) => {
+    getArticles(params.topic, searchParams, orderParams).then((res) => {
       setArticles(res);
       setIsLoading(false);
     });
-  }, [params.topic]);
+  }, [params.topic, searchParams, orderParams]);
 
   if (isLoading) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
-    <ul>
-      {articles.map((article) => {
-        return <ArticleCard key={article.article_id} article={article} />;
-      })}
-    </ul>
+    <>
+      <div className={styles.filterbar}>
+        <div className={styles.orderbox}>
+          <select value={searchParams} onChange={handleSort}>
+            <option value="">Sort articles by</option>
+            {sortBy.map((options, index) => {
+              return <option key={index}>{options}</option>;
+            })}
+          </select>
+          <button
+            value="ASC"
+            onClick={handleOrderAsc}
+            className={ascButtonClicked}
+          >
+            ASC
+          </button>
+          <div className={styles.divider}></div>
+          <button
+            value="DESC"
+            onClick={handleOrderDesc}
+            className={descButtonClicked}
+          >
+            DESC
+          </button>
+        </div>
+        {/* <button className={styles.postbut} >New Post</button> */}
+      </div>
+      <div>
+        <ul>
+          {articles.map((article) => {
+            return <ArticleCard key={article.article_id} article={article} />;
+          })}
+        </ul>
+      </div>
+    </>
   );
 };
