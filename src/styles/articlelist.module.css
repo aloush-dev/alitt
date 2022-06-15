@@ -1,0 +1,48 @@
+.filterbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.orderbox {
+  display: flex;
+  justify-content: center;
+}
+
+.orderbut {
+  border: none;
+  background-color: #e76f51;
+  color: white;
+  font-weight: bolder;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.postbut {
+  border: none;
+  background-color: #e76f51;
+  color: white;
+  font-weight: bolder;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.buttonselected {
+  border: none;
+  background-color: #ac4f38;
+  color: white;
+  font-weight: bolder;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.divider {
+  width: 3px;
+  background-color: white;
+}
+
+select {
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+}

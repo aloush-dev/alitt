@@ -1,6 +1,6 @@
 import styles from "../styles/articlevotestracker.module.css";
 import { updateVotes } from "../utils/api";
-import { BsFillHandThumbsUpFill } from "react-icons/bs";
+import { AiFillFire } from "react-icons/ai";
 import { useState } from "react";
 
 export const ArticleVoteTracker = ({ votes, articleID }) => {
@@ -18,7 +18,7 @@ export const ArticleVoteTracker = ({ votes, articleID }) => {
           });
         }}
       >
-        <BsFillHandThumbsUpFill />
+        <AiFillFire />
       </button>
       <div className={styles.votes}>{currentVotes}</div>
     </div>

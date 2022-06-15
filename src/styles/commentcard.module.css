@@ -27,6 +27,7 @@
   justify-content: space-between;
   padding-top: 10px;
   padding-left: 10px;
+  position: relative;
 }
 
 .votes {
@@ -42,5 +43,5 @@
 }
 
 .commentbody {
-  padding: 20px;
+  padding: 0 10px 10px 10px;
 }

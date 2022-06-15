@@ -20,10 +20,11 @@
 .topicauthor {
   display: flex;
   align-items: center;
+  margin-top: 0.3rem;
 }
 
 .articletopic {
-  background-color: #e76f51;
+  background-color: #f4a261;
   padding: 0.25rem;
   max-width: fit-content;
   display: flex;

@@ -1,20 +1,11 @@
 import styles from "../styles/postcomment.module.css";
 import { IoSend } from "react-icons/io5";
-import { postComment } from "../utils/api";
-import { useState } from "react";
 
-export const PostComment = ({ articleID }) => {
-  const [commentToPost, setCommentToPost] = useState("");
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    postComment(articleID, commentToPost).then((data) => {
-      if (data.body) {
-        alert("comment posted");
-      }
-    });
-    setCommentToPost("");
-  }
+export const PostComment = ({
+  handleSubmit,
+  commentToPost,
+  setCommentToPost,
+}) => {
 
   return (
     <form onSubmit={handleSubmit}>
@@ -22,7 +13,8 @@ export const PostComment = ({ articleID }) => {
         <label>
           <div className={styles.label}>Post comment</div>
           <div className={styles.inputcontainer}>
-            <input
+            <textarea
+              placeholder="Wow, what an amazing post!"
               className={styles.inputfield}
               required
               onChange={(event) => {
@@ -30,7 +22,7 @@ export const PostComment = ({ articleID }) => {
               }}
               value={commentToPost}
               type="text"
-            ></input>
+            ></textarea>
             <button className={styles.inputbutton}>
               <IoSend />
             </button>

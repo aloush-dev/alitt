@@ -12,7 +12,7 @@ export const ArticleCard = ({ article }) => {
           <button
             className={styles.articletopic}
             onClick={() => {
-              navigate = `/articles/${article.topic}}`;
+              navigate=`/articles/${article.topic}}`;
             }}
           >
             {article.topic}

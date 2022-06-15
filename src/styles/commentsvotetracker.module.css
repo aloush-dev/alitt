@@ -7,7 +7,7 @@
     background-color: white;
     color: #e76f51;
     font-size: 1.5rem;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     align-items: center;
     display: flex;
 }
@@ -24,6 +24,6 @@
     align-items: center;
     color: white;
     font-weight: bolder;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   

@@ -3,11 +3,9 @@ import { useState, useEffect } from "react";
 import { getArticleByID } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-
 import { ArticleVoteTracker } from "./ArticleVotesTracker";
 import { Loading } from "./Loading";
-import { CommentCard } from "./CommentCard";
-import { PostComment } from "./PostComment";
+import { CommentList } from "./CommentList";
 
 export const ArticlePage = () => {
   const [article, setArticle] = useState({});
@@ -23,30 +21,32 @@ export const ArticlePage = () => {
   }, [params.article_id]);
 
   if (isLoading) {
-    return <Loading />
+    return <Loading />;
   }
   return (
-      <>
-    <div className={styles.articlecard}>
-      <div className={styles.topbanner}>
-        <div className={styles.articletopic}>
-          <Link to={`/articles/${article.topic}`}>{article.topic}</Link>
-        </div>
-        <ArticleVoteTracker votes={article.votes} articleID={params.article_id} />
-      </div>
-
-      <div className={styles.articlebody}>
-        <h2>{article.title}</h2>
-        <div className={styles.topicauthor}>
-          <div className={styles.articleauthor}>
-            Posted by : {article.author}
+    <>
+      <div className={styles.articlecard}>
+        <div className={styles.topbanner}>
+          <div className={styles.articletopic}>
+            <Link to={`/articles/${article.topic}`}>{article.topic}</Link>
           </div>
+          <ArticleVoteTracker
+            votes={article.votes}
+            articleID={params.article_id}
+          />
         </div>
-        <p className={styles.articlecontent}>{article.body}</p>
+
+        <div className={styles.articlebody}>
+          <h2>{article.title}</h2>
+          <div className={styles.topicauthor}>
+            <div className={styles.articleauthor}>
+              Author: {article.author}
+            </div>
+          </div>
+          <p className={styles.articlecontent}>{article.body}</p>
+        </div>
       </div>
-    </div>
-    <PostComment articleID={params.article_id}/>
-    <CommentCard articleID={params.article_id} />
+      <CommentList articleID={params.article_id} />
     </>
   );
 };

@@ -1,34 +1,20 @@
-import { useEffect, useState } from "react";
 import styles from "../styles/commentcard.module.css";
-import { getComments } from "../utils/api";
+import { CommentsVoteTracker } from "./CommentsVoteTracker";
 
-export const CommentCard = ({ articleID }) => {
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    getComments(articleID).then((data) => {
-      setComments(data);
-    });
-  });
+export const CommentCard = ({comments, comment }) => {
 
   return comments.length === 0 ? (
     <div className={styles.nocomments}>
       <p> There are no comments to show</p>
     </div>
   ) : (
-    <ul>
-      {comments.map((comment) => {
-        return (
-          <li className={styles.commentcard} key={comment.comment_id}>
-            <div className={styles.topbanner}>
-              <div className={styles.author}>{comment.author}</div>
-              <div className={styles.votes}>{comment.votes}</div>
-            </div>
+    <li className={styles.commentcard}>
+      <div className={styles.topbanner}>
+        <div className={styles.author}>{comment.author}</div>
+        <CommentsVoteTracker comment={comment}/>
+      </div>
 
-            <div className={styles.commentbody}>{comment.body}</div>
-          </li>
-        );
-      })}
-    </ul>
+      <div className={styles.commentbody}>{comment.body}</div>
+    </li>
   );
 };
