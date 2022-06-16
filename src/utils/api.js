@@ -5,15 +5,11 @@ const alittApi = axios.create({
 });
 
 export const getArticles = (topic, searchParams, order) => {
-  if (searchParams) {
-    return alittApi
-      .get(`/articles?sort_by=${searchParams}&order=${order}`, { params: { topic } })
-      .then(({ data }) => {
-        return data.article;
-      });
-  }
   return alittApi
-    .get("/articles", { params: { topic }, sort_by: searchParams })
+
+    .get("/articles", {
+      params: { topic: topic, sort_by: searchParams, order: order },
+    })
     .then(({ data }) => {
       return data.article;
     })
@@ -48,10 +44,10 @@ export const getComments = (article_id) => {
   });
 };
 
-export const postComment = (article_id, commentToPost) => {
+export const postComment = (article_id, commentToPost, user) => {
   return alittApi
     .post(`/articles/${article_id}/comments`, {
-      username: "jessjelly",
+      username: user.username,
       body: commentToPost,
     })
     .then(({ data }) => {
@@ -67,6 +63,20 @@ export const increaseCommentVote = (comment_id) => {
     });
 };
 
-export const getSortBy = () => {
-  return alittApi.get("/articles", {});
+export const deleteComment = (comment_id) => {
+  return alittApi.delete(`/comments/${comment_id}`).then((data) => {
+    return data;
+  });
+};
+
+export const getUser = () => {
+  return alittApi.get("/users").then(({ data }) => {
+    return data.users;
+  });
+};
+
+export const postUser = (user) => {
+  return alittApi.post("/users", user).then((data) => {
+    return data;
+  });
 };

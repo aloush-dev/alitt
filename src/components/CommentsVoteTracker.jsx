@@ -3,24 +3,37 @@ import { AiFillFire } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { increaseCommentVote } from "../utils/api";
 
-export const CommentsVoteTracker = ({ comment }) => {
-    
-  const [currentVotes, setCurrentVotes] = useState(comment.votes);
+export const CommentsVoteTracker = ({
+  comment,
+  comment_id,
+  setCurrentVotes,
+  currentVotes,
+}) => {
+
+setCurrentVotes(comment.votes)
+  // const [currentVotes, setCurrentVotes] = useState(comment.votes);
+  const [clicked, setClicked] = useState(false);
+
+  function increaseFire() {
+    setClicked(true);
+  }
+
+  useEffect(() => {
+    if (clicked) {
+      increaseCommentVote(comment_id).then((data) => {
+        if (!data.comment) {
+          alert("Couldn't Update Votes");
+        }
+        setCurrentVotes(data.comment.votes);
+      });
+    }
+  }, [clicked]);
 
   return (
     <div className={styles.votebanner}>
       <button
         onClick={() => {
-          setCurrentVotes((oldVotes) => {
-            let newVotes = oldVotes++;
-            return newVotes;
-          });
-          increaseCommentVote(comment.comment_id).then((data) => {
-            if (!data.comment) {
-              alert("Couldn't Update Votes");
-            }
-            setCurrentVotes(data.comment.votes);
-          });
+          increaseFire(comment);
         }}
       >
         <AiFillFire />

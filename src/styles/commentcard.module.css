@@ -25,6 +25,7 @@
 .topbanner {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-top: 10px;
   padding-left: 10px;
   position: relative;
@@ -45,3 +46,22 @@
 .commentbody {
   padding: 0 10px 10px 10px;
 }
+
+.leftside {
+  display: flex;
+  align-items: flex-start;
+}
+
+.deletecomment {
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  color: #e76f51;
+}
+
+.deletecomment:hover {
+  color: #be4c30;
+}
+

@@ -1,7 +1,6 @@
 import styles from "../../styles/header.module.css";
 import { SideMenu } from "./SideMenu";
 import { SideMenuButton } from "./SideMenuButton";
-import { TopicNav } from "./TopicNav";
 
 export const Header = ({ sideMenu, setSideMenu }) => {
   return (
