@@ -1,0 +1,60 @@
+.newarticle {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.topbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topicselector {
+  display: flex;
+  border: 1px solid #a9a9a9;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.inputcontainer {
+  display: flex;
+  border: 1px solid #a9a9a9;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0.5rem;
+}
+.inputcontainer textarea:focus,
+.inputcontainer textarea:active {
+  outline: none;
+  width: 100%;
+  min-height: 100px;
+  margin-top: 0;
+}
+.inputcontainer textarea {
+  border: none;
+  width: 100%;
+  min-height: 100px;
+  margin-top: 0;
+  resize: none;
+}
+
+.inputbutton {
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
+  color: #e76f51;
+  margin-right: 0.5rem;
+}
+
+.inputbutton:hover {
+  color: #be4c30;
+}

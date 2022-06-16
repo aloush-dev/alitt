@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { userContext } from "../contexts/user";
 import styles from "../styles/articlelist.module.css";
 import { getArticles } from "../utils/api";
 import { ArticleCard } from "./ArticleCard";
 import { Loading } from "./Loading";
+import { NewArticle } from "./NewArticle";
 
 export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -12,6 +14,9 @@ export const ArticleList = () => {
   const [orderParams, setOrderParams] = useState("DESC");
   const [ascClicked, setAscClicked] = useState(false);
   const [descClicked, setDescClicked] = useState(true);
+  const [newArticle, setNewArticle] = useState(false);
+
+  const { user } = useContext(userContext);
 
   let sortBy = [
     { value: "created_at", name: "Date" },
@@ -47,6 +52,10 @@ export const ArticleList = () => {
     setOrderParams(event.target.value);
   };
 
+  function handleNewPost() {
+    setNewArticle(!newArticle);
+  }
+
   useEffect(() => {
     getArticles(params.topic, searchParams, orderParams).then((res) => {
       setArticles(res);
@@ -62,7 +71,7 @@ export const ArticleList = () => {
     <>
       <div className={styles.filterbar}>
         <div className={styles.orderbox}>
-          <select value={searchParams} onChange={handleSort}>
+          <select className={styles.searchparams} value={searchParams} onChange={handleSort}>
             <option value="">Sort articles by</option>
             {sortBy.map((option, index) => {
               return (
@@ -88,7 +97,16 @@ export const ArticleList = () => {
             DESC
           </button>
         </div>
-        {/* <button className={styles.postbut} >New Post</button> */}
+        {user.username ? (
+          <button onClick={handleNewPost} className={styles.postbut}>
+            New Post
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
+      <div className={styles.newpostcard}>
+        {newArticle ? <NewArticle /> : ""}
       </div>
       <div>
         <ul>
