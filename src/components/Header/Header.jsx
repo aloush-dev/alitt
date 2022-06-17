@@ -5,6 +5,7 @@ import { SideMenuButton } from "./SideMenuButton";
 export const Header = ({ sideMenu, setSideMenu }) => {
   return (
     <header>
+      <img src='../../Alitt.png' alt="logo" ></img>
       <h1>Alitt</h1>
 
       <div className={styles.sidemenu}>

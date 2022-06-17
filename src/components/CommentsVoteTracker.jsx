@@ -27,7 +27,7 @@ setCurrentVotes(comment.votes)
         setCurrentVotes(data.comment.votes);
       });
     }
-  }, [clicked]);
+  }, [clicked, comment_id]);
 
   return (
     <div className={styles.votebanner}>
