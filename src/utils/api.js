@@ -14,13 +14,15 @@ export const getArticles = (topic, searchParams, order) => {
       return data.article;
     })
     .catch((err) => {
-      console.log(err);
+      return err
     });
 };
 
 export const getArticleByID = (article_id) => {
   return alittApi.get(`/articles/${article_id}`).then(({ data }) => {
     return data.article;
+  }).catch((err)=>{
+    return err
   });
 };
 
