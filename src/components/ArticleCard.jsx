@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaComments } from "react-icons/fa";
 
 export const ArticleCard = ({ article }) => {
+  // eslint-disable-next-line 
   let navigate = useNavigate();
   return (
     <Link to={`/articles/article/${article.article_id}`}>

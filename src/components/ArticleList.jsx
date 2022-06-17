@@ -66,7 +66,7 @@ export const ArticleList = () => {
       setArticles(res);
       setIsLoading(false);
     });
-  }, [params.topic, searchParams, orderParams]);
+  }, [params.topic, searchParams, orderParams, navigate]);
 
   if (isLoading) {
     return <Loading />;
