@@ -4,9 +4,9 @@ import { userContext } from "../contexts/user";
 import styles from "../styles/createuser.module.css";
 import { postUser } from "../utils/api";
 
-export const CreateUser = (userQuery ) => {
+export const CreateUser = ( ) => {
 
-  console.log(userQuery);
+
 
   const { setUser } = useContext(userContext);
   const [newUserQuery, setNewUserQuery] = useState("");
@@ -18,7 +18,7 @@ export const CreateUser = (userQuery ) => {
   function handleSubmit(event) {
     event.preventDefault();
     postUser({
-      username: userQuery,
+      username: newUserQuery,
       name: nameQuery,
       avatar_url: avatarQuery,
     }).then((res) => {

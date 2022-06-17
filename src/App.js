@@ -8,6 +8,7 @@ import { ArticlePage } from "./components/ArticlePage";
 import { userContext } from "./contexts/user";
 import { Login } from "./components/Login";
 import { CreateUser } from "./components/CreateUser";
+import { ErrorPage } from "./components/ErrorPage";
 
 function App() {
   const [user, setUser] = useState({});
@@ -27,6 +28,8 @@ function App() {
             path="/articles/article/:article_id"
             element={<ArticlePage />}
           />
+          <Route path="/404" element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </userContext.Provider>

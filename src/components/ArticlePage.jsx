@@ -1,24 +1,29 @@
 import styles from "../styles/articlepage.module.css";
 import { useState, useEffect } from "react";
 import { getArticleByID } from "../utils/api";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { ArticleVoteTracker } from "./ArticleVotesTracker";
 import { Loading } from "./Loading";
 import { CommentList } from "./CommentList";
+
 
 export const ArticlePage = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getArticleByID(params.article_id).then((res) => {
+      if(res.response){
+        navigate('/404')
+      }
       setArticle(res);
       setIsLoading(false);
     });
-  }, [params.article_id]);
+  }, [params.article_id, navigate]);
 
   if (isLoading) {
     return <Loading />;

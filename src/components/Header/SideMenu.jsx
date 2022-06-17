@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import styles from "../../styles/sidemenu.module.css";
 import { userContext } from "../../contexts/user";
+import { Link } from "react-router-dom";
 
 export const SideMenu = ({ sideMenu }) => {
   const { user } = useContext(userContext);
@@ -14,13 +15,25 @@ export const SideMenu = ({ sideMenu }) => {
   return (
     <>
       <div className={`${stateOfMenu}`}>
-        <div className={styles.userprofile}>
-          <div className={styles.userwelcome}>
-            <h3>Hello, {user.name}</h3>
+        {user.username ? (
+          <div className={styles.userprofile}>
+            <div className={styles.userwelcome}>
+              <h3>Hello, {user.name}</h3>
+            </div>
+            <div>
+              <img
+                className={styles.avatar}
+                alt="avatar"
+                src={user.avatar_url}
+              />
+            </div>
           </div>
-          <div>
-            <img className={styles.avatar} alt="avatar" src={user.avatar_url} />
-          </div>
+        ) : (
+          ""
+        )}
+        <div className={styles.loginlinks}>
+          <Link to="/">Login</Link>
+          <Link to="create-user">Sign Up</Link>
         </div>
       </div>
     </>

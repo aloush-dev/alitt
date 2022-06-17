@@ -48,3 +48,15 @@
   min-height: 8rem;
   border: 0.25rem solid white;
 }
+
+.loginlinks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.loginlinks a {
+  color: white;
+  padding: 0.5rem;
+
+}

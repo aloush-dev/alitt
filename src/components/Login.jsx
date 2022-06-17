@@ -24,7 +24,7 @@ export const Login = () => {
         setUser(currentUser);
         navigate("/articles");
       } else {
-        navigate("create-user", { state: userQuery });
+        navigate("create-user");
       }
     });
     setUserQuery("");

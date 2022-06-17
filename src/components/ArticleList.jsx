@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { userContext } from "../contexts/user";
 import styles from "../styles/articlelist.module.css";
 import { getArticles } from "../utils/api";
 import { ArticleCard } from "./ArticleCard";
 import { Loading } from "./Loading";
 import { NewArticle } from "./NewArticle";
+
 
 export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -17,6 +18,7 @@ export const ArticleList = () => {
   const [newArticle, setNewArticle] = useState(false);
 
   const { user } = useContext(userContext);
+  const navigate = useNavigate();
 
   let sortBy = [
     { value: "created_at", name: "Date" },
@@ -58,6 +60,9 @@ export const ArticleList = () => {
 
   useEffect(() => {
     getArticles(params.topic, searchParams, orderParams).then((res) => {
+      if (res.response) {
+        navigate("/404");
+      }
       setArticles(res);
       setIsLoading(false);
     });
@@ -71,7 +76,11 @@ export const ArticleList = () => {
     <>
       <div className={styles.filterbar}>
         <div className={styles.orderbox}>
-          <select className={styles.searchparams} value={searchParams} onChange={handleSort}>
+          <select
+            className={styles.searchparams}
+            value={searchParams}
+            onChange={handleSort}
+          >
             <option value="">Sort articles by</option>
             {sortBy.map((option, index) => {
               return (
