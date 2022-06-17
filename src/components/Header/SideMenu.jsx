@@ -29,12 +29,11 @@ export const SideMenu = ({ sideMenu }) => {
             </div>
           </div>
         ) : (
-          ""
+          <div className={styles.loginlinks}>
+            <Link to="/">Login</Link>
+            <Link to="create-user">Sign Up</Link>
+          </div>
         )}
-        <div className={styles.loginlinks}>
-          <Link to="/">Login</Link>
-          <Link to="create-user">Sign Up</Link>
-        </div>
       </div>
     </>
   );

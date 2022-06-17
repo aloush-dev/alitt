@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "../../styles/header.module.css";
 import { SideMenu } from "./SideMenu";
 import { SideMenuButton } from "./SideMenuButton";
@@ -5,9 +6,11 @@ import { SideMenuButton } from "./SideMenuButton";
 export const Header = ({ sideMenu, setSideMenu }) => {
   return (
     <header>
-      <img src='../../Alitt.png' alt="logo" ></img>
-      <h1>Alitt</h1>
-
+      <div className={styles.logoarea}>
+        <Link to="/articles">
+          <h1>Alitt</h1>
+        </Link>
+      </div>
       <div className={styles.sidemenu}>
         <SideMenu
           className={styles.sidemenu}

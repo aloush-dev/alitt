@@ -82,3 +82,10 @@ export const postUser = (user) => {
     return data;
   });
 };
+
+export const postArticle = (article) => {
+  console.log(article)
+  return alittApi.post("/articles", article).then((data)=>{
+    return data
+  })
+}

@@ -16,3 +16,9 @@ header h1 {
   border: none;
   margin: 20px;
 }
+
+.logoarea{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

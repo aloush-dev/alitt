@@ -3,12 +3,16 @@ import styles from "../styles/newarticle.module.css";
 import { getTopics } from "../utils/api";
 import { IoSend } from "react-icons/io5";
 
-export const NewArticle = () => {
+export const NewArticle = ({
+  articleToPost,
+  setArticleToPost,
+  setArticleTopicToPost,
+  handleSubmit,
+  setArticleTitleToPost,
+  articleTitleToPost,
+  articleTopicToPost,
+}) => {
   const [topics, setTopics] = useState([]);
-
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
 
   useEffect(() => {
     getTopics().then((res) => {
@@ -22,11 +26,27 @@ export const NewArticle = () => {
         <div className={styles.topbar}>
           <label>
             <div>title</div>
-            <input type="text"></input>
+            <input
+              required
+              onChange={(event) => {
+                setArticleTitleToPost(event.target.value);
+              }}
+              type="text"
+              value={articleTitleToPost}
+            ></input>
           </label>
           <div>
-            <label>topic
-              <select className={styles.topicselector}>
+            <label>
+              topic
+              <select
+                required
+                value={articleTopicToPost}
+                onChange={(event) => {
+                  setArticleTopicToPost(event.target.value);
+                }}
+                className={styles.topicselector}
+              >
+                <option disabled></option>
                 {topics.map((topic, index) => {
                   return <option key={index}>{topic.slug}</option>;
                 })}
@@ -37,10 +57,13 @@ export const NewArticle = () => {
 
         <div className={styles.inputcontainer}>
           <textarea
+            onChange={(event) => {
+              setArticleToPost(event.target.value);
+            }}
             placeholder="Lets make a great post..."
             className={styles.inputfield}
             required
-            value=""
+            value={articleToPost}
             type="text"
           ></textarea>
           <button className={styles.inputbutton}>

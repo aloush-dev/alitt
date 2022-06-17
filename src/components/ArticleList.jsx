@@ -2,11 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { userContext } from "../contexts/user";
 import styles from "../styles/articlelist.module.css";
-import { getArticles } from "../utils/api";
+import { getArticles, postArticle } from "../utils/api";
 import { ArticleCard } from "./ArticleCard";
 import { Loading } from "./Loading";
 import { NewArticle } from "./NewArticle";
-
 
 export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -16,6 +15,9 @@ export const ArticleList = () => {
   const [ascClicked, setAscClicked] = useState(false);
   const [descClicked, setDescClicked] = useState(true);
   const [newArticle, setNewArticle] = useState(false);
+  const [articleToPost, setArticleToPost] = useState("");
+  const [articleTopicToPost, setArticleTopicToPost] = useState("");
+  const [articleTitleToPost, setArticleTitleToPost] = useState("");
 
   const { user } = useContext(userContext);
   const navigate = useNavigate();
@@ -58,6 +60,38 @@ export const ArticleList = () => {
     setNewArticle(!newArticle);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    setNewArticle(false)
+    setArticles((oldArticles) => {
+      let newArticles = [
+        {
+          title: articleTitleToPost,
+          topic: articleTopicToPost,
+          body: articleToPost,
+          author: user.username,
+        },
+        ...oldArticles,
+      ];
+      return newArticles;
+    });
+    postArticle({
+      title: articleTitleToPost,
+      topic: articleTopicToPost,
+      body: articleToPost,
+      author: user.username,
+    })
+      .then(() => {
+        setArticleTitleToPost("");
+        setArticleTopicToPost("");
+        setArticleToPost("");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Sorry we couldn't post your article, try again later");
+      });
+  }
+
   useEffect(() => {
     getArticles(params.topic, searchParams, orderParams).then((res) => {
       if (res.response) {
@@ -66,7 +100,7 @@ export const ArticleList = () => {
       setArticles(res);
       setIsLoading(false);
     });
-  }, [params.topic, searchParams, orderParams, navigate]);
+  }, [params.topic, searchParams, orderParams, navigate, articleToPost]);
 
   if (isLoading) {
     return <Loading />;
@@ -115,12 +149,24 @@ export const ArticleList = () => {
         )}
       </div>
       <div className={styles.newpostcard}>
-        {newArticle ? <NewArticle /> : ""}
+        {newArticle ? (
+          <NewArticle
+            setArticleTitleToPost={setArticleTitleToPost}
+            setArticleToPost={setArticleToPost}
+            handleSubmit={handleSubmit}
+            setArticleTopicToPost={setArticleTopicToPost}
+            articleTitleToPost={articleTitleToPost}
+            articleTopicToPost={articleTopicToPost}
+            articleToPost={articleToPost}
+          />
+        ) : (
+          ""
+        )}
       </div>
       <div>
         <ul>
-          {articles.map((article) => {
-            return <ArticleCard key={article.article_id} article={article} />;
+          {articles.map((article, index) => {
+            return <ArticleCard key={index} article={article} />;
           })}
         </ul>
       </div>
