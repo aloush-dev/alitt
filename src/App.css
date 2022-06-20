@@ -1,4 +1,34 @@
 .App {
-
 }
 
+.menu {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .App {
+    display: grid;
+    grid-area: "header header" "topicnav topicnav" "menu main";
+  }
+
+  .header {
+    display: grid;
+    grid-area: "header";
+    height: 100%;
+  }
+
+  .topicnav {
+    display: grid;
+    grid-area: "topicnav";
+  }
+
+  .menu {
+    display: grid;
+    grid-area: "menu";
+  }
+
+  .main {
+    display: grid;
+    grid-area: "main";
+  }
+}

@@ -11,14 +11,29 @@ header h1 {
   color: white;
 }
 
-.sidemenu button {
+.sidemenuarea button {
   background-color: #264653;
   border: none;
   margin: 20px;
 }
 
-.logoarea{
+.logoarea {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.loginarea {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .sidemenuarea button {
+    display: none;
+  }
+
+  .sidemenu {
+    
+  }
+
 }

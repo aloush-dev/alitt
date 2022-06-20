@@ -2,6 +2,9 @@ import styles from "../styles/commentcard.module.css";
 import { userContext } from "../contexts/user";
 import { useContext } from "react";
 import { FaTrash } from "react-icons/fa";
+import {CommentsVoteTracker} from '../components/CommentsVoteTracker'
+
+
 
 export const CommentCard = ({ comments, comment, removeComment, currentVotes, setCurrentVotes }) => {
   const { user } = useContext(userContext);

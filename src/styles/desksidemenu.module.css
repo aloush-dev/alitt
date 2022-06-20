@@ -1,0 +1,13 @@
+.menumain {
+    background-color: #18343f;
+    height: 100%;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    transition: all 0.3s linear;
+  }
+
+  .avatar {
+      max-height: 50px;
+  }

@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  width: 100%;
 }
 
 .topbar{
@@ -31,6 +32,7 @@
   justify-content: space-between;
   align-items: flex-end;
   padding: 0.5rem;
+  width: 100%;
 }
 .inputcontainer textarea:focus,
 .inputcontainer textarea:active {
@@ -38,6 +40,7 @@
   width: 100%;
   min-height: 100px;
   margin-top: 0;
+  width: 100%;
 }
 .inputcontainer textarea {
   border: none;
