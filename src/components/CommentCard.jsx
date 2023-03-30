@@ -2,7 +2,6 @@ import styles from "../styles/commentcard.module.css";
 import { userContext } from "../contexts/user";
 import { useContext } from "react";
 import { FaTrash } from "react-icons/fa";
-import {CommentsVoteTracker} from '../components/CommentsVoteTracker'
 
 
 

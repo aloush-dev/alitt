@@ -9,7 +9,6 @@ import { userContext } from "./contexts/user";
 import { Login } from "./components/Login";
 import { CreateUser } from "./components/CreateUser";
 import { ErrorPage } from "./components/ErrorPage";
-import { DeskSideMenu } from "./components/DeskSideMenu";
 
 function App() {
   const [user, setUser] = useState({

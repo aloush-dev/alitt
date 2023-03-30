@@ -1,12 +1,10 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { userContext } from "../../contexts/user";
 import styles from "../../styles/header.module.css";
 import { SideMenu } from "./SideMenu";
 import { SideMenuButton } from "./SideMenuButton";
 
 export const Header = ({ sideMenu, setSideMenu }) => {
-  const { user } = useContext(userContext);
+  
 
   return (
     <header>
