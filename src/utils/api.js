@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const alittApi = axios.create({
-  baseURL: "https://alitt-app.herokuapp.com/api",
+  baseURL: "https://alitt.onrender.com/api",
 });
 
 export const getArticles = (topic, searchParams, order) => {
@@ -14,16 +14,19 @@ export const getArticles = (topic, searchParams, order) => {
       return data.article;
     })
     .catch((err) => {
-      return err
+      return err;
     });
 };
 
 export const getArticleByID = (article_id) => {
-  return alittApi.get(`/articles/${article_id}`).then(({ data }) => {
-    return data.article;
-  }).catch((err)=>{
-    return err
-  });
+  return alittApi
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.article;
+    })
+    .catch((err) => {
+      return err;
+    });
 };
 
 export const getTopics = () => {
@@ -84,8 +87,8 @@ export const postUser = (user) => {
 };
 
 export const postArticle = (article) => {
-  console.log(article)
-  return alittApi.post("/articles", article).then((data)=>{
-    return data
-  })
-}
+  console.log(article);
+  return alittApi.post("/articles", article).then((data) => {
+    return data;
+  });
+};
